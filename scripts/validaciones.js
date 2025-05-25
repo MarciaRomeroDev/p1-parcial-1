@@ -57,23 +57,20 @@ function esURLValida(url) {
   }
 }
 
-function validarURL(mensaje){
-
+function validarURL(mensaje) {
   do {
-      let url = validarPromp(mensaje);
-    if (esURLValida(url)=== true) {
- break;
-} else {
-  alert("la URL incorrecta, ingrese una URL válida");
- continue;
-}
+    let url = validarPromp(mensaje);
+    if (esURLValida(url) === true) {
+      break;
+    } else {
+      alert("la URL incorrecta, ingrese una URL válida");
+      continue;
+    }
   } while (true);
-
 }
 
-// Convertir la primer letra en mayuscula 
+// Convertir la primer letra en mayuscula
 const capitalizeString = (dato) => {
   return dato.replace(dato.charAt(0), dato.charAt(0).toUpperCase());
-  // return str.charAt(0).toUpperCase().concat(str.slice(1));
-}
-
+  ;
+};

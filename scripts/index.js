@@ -22,11 +22,8 @@ fetch("discos.json")
   });
 
 function mostrarDiscos() {
-  const divBiblioteca = document.querySelector("#discos");
-  divBiblioteca.innerHTML = "";
-  discos.forEach((disco) => (divBiblioteca.innerHTML += disco.toHTML()));
 
-  // Mostrar en la parte superior la canctidad total de discos y el disco con mayor duracion
+    // Mostrar en la parte superior la canctidad total de discos y el disco con mayor duracion
   let discoConMayorDuracion = discos[0];
   let duracionMaxima = discos[0].duracionTotalPistas();
 
@@ -38,10 +35,19 @@ function mostrarDiscos() {
     }
 
     const info = document.querySelector("#informacion");
-    info.innerHTML = `
-  <p><strong>Cantidad de discos:</strong> ${discos.length}</p>
-  <p><strong>Disco con mayor duración:</strong> ${discoConMayorDuracion.nombre} con  ${Pista.formatearDuracion(duracionMaxima)} minutos</p>
-`;
+    info.innerHTML = ` <h2>Mis Discos</h2>
+     <ul>
+              <li>Cantidad de discos: <span class="numero"> ${discos.length}</span></li>
+              <li>
+                Disco de mayor duración: <span class="resaltar">${discoConMayorDuracion.nombre}</span>
+              </li>
+              <li>Duración: <span class="numero">${Pista.formatearDuracion(duracionMaxima)}</span></li>
+    </ul>`;
+  const divBiblioteca = document.querySelector("#discos");
+  divBiblioteca.innerHTML = "";
+  discos.forEach((disco) => (divBiblioteca.innerHTML += disco.toHTML()));
+
+
   }
 
 }
@@ -58,7 +64,7 @@ function cargarNuevoDisco() {
   discos.push(nuevoDisco);
   discos.sort((x, y) => x.id - y.id);
 
-  alert(`El disco ${nombre} fue agregado con exito`)
+  alert(`El disco ${nombre.toLocaleUpperCase()} fue agregado con exito`)
   mostrarDiscos();
 
 }
