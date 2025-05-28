@@ -58,8 +58,9 @@ function esURLValida(url) {
 }
 
 function validarURL(mensaje) {
+  let url;
   do {
-    let url = validarPromp(mensaje);
+     url = validarPromp(mensaje);
     if (esURLValida(url) === true) {
       break;
     } else {
@@ -67,10 +68,12 @@ function validarURL(mensaje) {
       continue;
     }
   } while (true);
+  return url;
+
 }
 
 // Convertir la primer letra en mayuscula
 const capitalizeString = (dato) => {
   return dato.replace(dato.charAt(0), dato.charAt(0).toUpperCase());
-  ;
-};
+
+}
